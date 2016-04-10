@@ -3,20 +3,26 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Task;
+use App\Marathon;
 
-class TaskRepository
+class MarathonRepository
 {
     /**
-     * Get all of the tasks for a given user.
+     * Get all of the marathons for a given user.
      *
      * @param  User  $user
      * @return Collection
      */
     public function forUser(User $user)
     {
-        return Task::where('user_id', $user->id)
+        return Marathon::where('user_id', $user->id)
                     ->orderBy('created_at', 'asc')
                     ->get();
+    }
+
+    public function byId($id)
+    {
+        return Marathon::where('id', $id)
+            ->first();
     }
 }

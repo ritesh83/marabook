@@ -32,9 +32,14 @@ Route::group(['middleware' => ['web']], function () {
         return view('home');
     });
 
-    Route::get('/tasks', 'TaskController@index');
-    Route::post('/task', 'TaskController@store');
-    Route::delete('/task/{task}', 'TaskController@destroy');
+    // Route::get('/api/fruits', function () {
+    //     return json_encode(array("apple", "banana"));
+    // });
+
+    Route::get('/marathons', 'MarathonController@index');
+    Route::get('/marathons/{marathon}', 'MarathonController@get');
+    Route::post('/marathon', 'MarathonController@store');
+    Route::delete('/marathon/{marathon}', 'MarathonController@destroy');
 
     Route::auth();
 

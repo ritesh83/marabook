@@ -25,10 +25,10 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get all of the tasks for the user.
+     * Get all of the marathons for the user.
      */
-    public function tasks()
+    public function marathons()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Marathon::class);
     }
 }
